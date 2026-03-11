@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenGL-Style Square Animation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+        }
+        canvas {
+            border: 2px solid #555;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // Variables equivalent to your Python script
+    let rectX = -50; 
+    let rectY;
+    let rectSize = 50;
+    let speed = 3;
+
+    function setup() {
+        // Create a canvas (like glutInitWindowSize)
+        createCanvas(600, 400);
+        rectY = height / 2 - rectSize / 2;
+    }
+
+    function draw() {
+        // Equivalent to the display() function
+        background(0); // glClearColor(0,0,0)
+        
+        // Draw the square (glColor3f and glBegin)
+        fill(0, 180, 255); // Cyan color
+        noStroke();
+        rect(rectX, rectY, rectSize, rectSize);
+
+        // Update logic (Equivalent to the timer function)
+        rectX += speed;
+
+        // Reset position when it goes off-screen
+        if (rectX > width) {
+            rectX = -rectSize;
+        }
+    }
+</script>
+
+</body>
+</html>
